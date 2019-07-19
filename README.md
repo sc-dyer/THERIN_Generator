@@ -14,3 +14,10 @@ The order of the oxides shouldnt matter and if you have weird components that
 arent accounted for the program will tell you but it should be easy to add those in. 
 If you have both Fe2O3 and FeO it will combine those into one column in the output file for Fe.
  Don't include anything like Fe2O3(T), just rename it.
+ 
+Get the file names and directories and put them in the correct format
+The sample name column should be the same as SAMPLE
+There must be no empty cells! If you have no data for a cell enter 0 in the file
+
+This program was written by Sabastien C. Dyer
+Questions? Concerns? Find my contact info at www.scdyer.com
