@@ -3,6 +3,8 @@ A program for generating THERIN files for use in THERIAK-DOMINO
 
 This program uses Python 3
 
+To run this program just run main.py
+
 Using a .csv file with major elements in the top row and sample name in the left 
 column, this will convert from wt% to mol% (assuming Fe is reduced) and output
 a THERIN file for each record. These files will need to be renamed "THERIN" when
