@@ -1,21 +1,21 @@
-#Molecular weights of major oxides
-M_SIO2 = 60.08
-M_AL2O3 = 101.96
-M_FE2O3 = 159.69
-M_FEO = 71.844
-M_MNO = 70.937
-M_MGO = 40.3044
-M_CAO = 56.0774
-M_NA2O = 61.9789
-M_K2O = 94.2
-M_TIO2 = 79.866
-M_P2O5 = 283.886
-M_H2O = 18.01528
-M_CO2 = 44.01
+#Geochem_const.py
+#Contains definitions of the different components
 
-#Major element data: All these arrays need to be the same size!
-MAJ_OX = ["SiO2","Al2O3","Fe2O3","FeO","MnO","MgO","CaO","Na2O","K2O","TiO2","P2O5","H2O","CO2"] #Array of oxide names for matching with csv headers
-MOL_W = [M_SIO2,M_AL2O3,M_FE2O3,M_FEO,M_MNO,M_MGO,M_CAO,M_NA2O,M_K2O,M_TIO2,M_P2O5,M_H2O,M_CO2]#Array of molar weights to match with the list of major oxides
-OX_RATIO = [2,3/2,1,1,1,1,1/2,1/2,2,5/2,1/2,1/2]#Ratio of O to cation to match with list of major oxides, this assumes reduced iron so the oxide ratio being used for Fe2O3 is 1
-CAT_NUM = [1,2,2,1,1,1,1,2,2,1,2,2,1]#Number of cations in each major oxide
-CAT = ["Si","Al","Fe","Fe","Mn","Mg","Ca","Na","K","Ti","P","H","C"]
+import Component
+#Making the components: Input values are name, molar weight, oxide ratio, cation number, Cation name
+SiO2 = Component.Component("SiO2", 60.08, 2, 1, "Si")
+Al2O3 = Component.Component("Al2O3", 101.96, 3/2, 2, "Al")
+Fe2O3 = Component.Component("Fe2O3", 159.69, 1, 2, "Fe") #Assumes reduced iron so using oxide ratio for FeO instead, only used for calculating O2
+FeO = Component.Component("FeO", 71.844, 1, 1, "Fe")
+MnO = Component.Component("MnO", 70.937, 1, 1, "Mn")
+MgO = Component.Component("MgO", 40.3044, 1, 1, "Mg")
+CaO = Component.Component("CaO", 56.0774, 1, 1, "Ca")
+Na2O = Component.Component("Na2O", 61.9789, 1/2, 2, "Na")
+K2O = Component.Component("K2O", 94.2, 1/2, 2, "K")
+TiO2 = Component.Component("TiO2", 79.866, 2, 1, "Ti")
+P2O5 = Component.Component("P2O5", 283.886, 5/2, 2, "P")
+H2O = Component.Component("H2O", 18.01528, 1/2, 2, "H")
+CO2 = Component.Component("CO2", 44.01, 2, 1, "C")
+
+COMPONENTS = [SiO2, Al2O3, Fe2O3, FeO, MnO, MgO, CaO, Na2O, K2O, TiO2, H2O, CO2] #No P2O5 because unreliable data, add if desired
+GT_ENDMEM = ['alm','spss','gr','py']#End member codes for garnet in domino
