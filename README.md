@@ -1,7 +1,7 @@
 # THERIN_Generator
 A program for generating THERIN files for use in THERIAK-DOMINO
 
-This program uses Python 3
+This program was written in Python 3 but it should work for Python 2
 
 To run this program just run main.py
 
