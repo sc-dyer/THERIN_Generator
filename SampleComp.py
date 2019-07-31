@@ -56,7 +56,7 @@ class SampleComp:
             currComp = self.components[i]
             if self.molArray[i] > 0:
                 
-                if redCO2 == "y" or CO2 >= 0:
+                if redCO2 or CO2 >= 0:
                     if H2O >= 0:
                         if currComp.formula!= "H2O" and currComp.formula!= "CO2" :
                             mol_O += self.molArray[i]*currComp.ox2cat            
@@ -73,16 +73,16 @@ class SampleComp:
                             mol_O += self.molArray[i]*currComp.ox2cat            
                             therin += currComp.cation.upper() + "(" + str(self.molArray[i]) + ")"
                 
-                if redCO2 != "y" and CO2 < 0:#This is to catch if CO2 is reduced but you still have a value provided in the data table
+                if not redCO2 and CO2 < 0:#This is to catch if CO2 is reduced but you still have a value provided in the data table
                     if currComp.formula== "CO2":
                             mol_O += self.molArray[i]*currComp.ox2cat            
                             therin += currComp.cation.upper() + "(" + str(self.molArray[i]) + ")"
-                elif redCO2 == "y" and CO2 <0:
+                elif redCO2 and CO2 <0:
                     if currComp.formula== "CO2":
                         therin += currComp.cation.upper() + "(" + str(self.molArray[i]) + ")"
                     
         #Write preset C and H into file
-        if CO2 >= 0 and redCO2 != "y":
+        if CO2 >= 0 and not redCO2:
             mol_O += CO2*2
             therin += "C(" + str(CO2) + ")"
         elif CO2 >= 0:

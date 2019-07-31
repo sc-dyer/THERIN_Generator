@@ -1,8 +1,9 @@
 # THERIN_Generator
-A program for generating THERIN files for use in THERIAK-DOMINO
+A program for generating THERIN and script files for use in THERIAK-DOMINO
 
-This program was written in Python 3 but it should work for Python 2
-
+If you are unfamiliar with python I reccomend starting with downloading and installing pyzo(https://pyzo.org/). 
+It is an integrated development environment which makes getting started with python fairly straightforward.
+This program should work for python3 or python2. This program requires easygui to run. If you are running a python version earlier than 3.7 you will also need to install tkinter(https://tkdocs.com/tutorial/install.html)
 To run this program just run main.py
 
 Using a .csv file with major elements in the top row and sample name in the left 
@@ -16,6 +17,7 @@ The order of the oxides shouldnt matter and if you have weird components that
 arent accounted for the program will tell you but it should be easy to add those in. 
 If you have both Fe2O3 and FeO it will combine those into one column in the output file for Fe.
  Don't include anything like Fe2O3(T), just rename it.
+ NOTE: If you are having problems with reading the CSV file make sure it is encoded as UTF-8
  
 Get the file names and directories and put them in the correct format
 The sample name column should be the same as SAMPLE

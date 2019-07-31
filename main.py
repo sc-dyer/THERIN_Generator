@@ -27,6 +27,7 @@ import SampleComp
 #import sys
 import csv
 import os
+import easygui
 
 INIT_T = 500 #First temp in first line
 INIT_P = 2500#First pressure in first line
@@ -64,18 +65,21 @@ PRINT_CODE = 0
 
 
 
-
-fileIn = input('Enter the full file name of the formatted geochem CSV file including directory: ')
+print('Select the csv file where the geochemical data is stored')
+#fileIn = input('Enter the full file name of the formatted geochem CSV file including directory: ')
+fileIn = easygui.fileopenbox()
 fileIn = fileIn.strip()
 fileIn = fileIn.strip('"')
 
-
-fileOut = input('Enter the desired directory for the output files to be saved (WARNING: THIS WILL OVERWRITE FILES OF THE SAME NAME, SAVE TO NEW FOLDER IF YOU DONT WANT THIS TO HAPPEN): ')
+print('Select the desired directory for the THERIN files to be saved (WARNING: THIS WILL OVERWRITE FILES OF THE SAME NAME, SAVE TO NEW FOLDER IF YOU DONT WANT THIS TO HAPPEN)')
+#fileOut = input('Enter the desired directory for the output files to be saved (WARNING: THIS WILL OVERWRITE FILES OF THE SAME NAME, SAVE TO NEW FOLDER IF YOU DONT WANT THIS TO HAPPEN): ')
+fileOut = easygui.diropenbox()
 fileOut = fileOut.strip()
 fileOut = fileOut.strip('"')
 
-
-scriptOut = input('Enter the desired directory for the script files to be saved (WARNING: THIS WILL OVERWRITE FILES OF THE SAME NAME, SAVE TO NEW FOLDER IF YOU DONT WANT THIS TO HAPPEN): ')
+print('Select the desired directory for the script files to be saved (WARNING: THIS WILL OVERWRITE FILES OF THE SAME NAME, SAVE TO NEW FOLDER IF YOU DONT WANT THIS TO HAPPEN): ')
+#scriptOut = input('Enter the desired directory for the script files to be saved (WARNING: THIS WILL OVERWRITE FILES OF THE SAME NAME, SAVE TO NEW FOLDER IF YOU DONT WANT THIS TO HAPPEN): ')
+scriptOut = easygui.diropenbox()
 scriptOut = scriptOut.strip()
 scriptOut = scriptOut.strip('"')
 
@@ -160,10 +164,17 @@ writeFile.close()
 #Finally it is time to write the Therein files
 #It will not title the files "THERIN" but instead with the sample name. The user
 #will have to change the name of the file themselves
+title = ""
+msg = "Enter mols of H2O and CO2, use a number less than 0 to use the values from the table"
+fieldNames = ["Mols H2O","Mols CO2"]
+fieldVals = easygui.multenterbox(msg,title,fieldNames)
+H2O = float(fieldVals[0])
+CO2 = float(fieldVals[1])
 
-H2O = float(input('Enter the mols of H2O you wish to have in each sample, enter a number less than 0 if you want to use H2O from the table: '))
-CO2 = float(input('Enter the mols of CO2 you wish to have in each sample, enter a number less than 0 if you want to use CO2 from the table: '))
-redCO2 = input("Is the CO2 reduced? (y/n)")
+redCO2 = easygui.boolbox("Is CO2 reduced?",title,["Yes","No"])
+#H2O = float(input('Enter the mols of H2O you wish to have in each sample, enter a number less than 0 if you want to use H2O from the table: '))
+#CO2 = float(input('Enter the mols of CO2 you wish to have in each sample, enter a number less than 0 if you want to use CO2 from the table: '))
+#redCO2 = input("Is the CO2 reduced? (y/n)")
 
 for elem in sampleCompos:
    
