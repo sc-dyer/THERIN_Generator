@@ -67,19 +67,19 @@ PRINT_CODE = 0
 
 print('Select the csv file where the geochemical data is stored')
 #fileIn = input('Enter the full file name of the formatted geochem CSV file including directory: ')
-fileIn = easygui.fileopenbox()
+fileIn = easygui.fileopenbox('Select the csv file where the geochemical data is stored')
 fileIn = fileIn.strip()
 fileIn = fileIn.strip('"')
 
 print('Select the desired directory for the THERIN files to be saved (WARNING: THIS WILL OVERWRITE FILES OF THE SAME NAME, SAVE TO NEW FOLDER IF YOU DONT WANT THIS TO HAPPEN)')
 #fileOut = input('Enter the desired directory for the output files to be saved (WARNING: THIS WILL OVERWRITE FILES OF THE SAME NAME, SAVE TO NEW FOLDER IF YOU DONT WANT THIS TO HAPPEN): ')
-fileOut = easygui.diropenbox()
+fileOut = easygui.diropenbox('Select the desired directory for the THERIN files to be saved ')
 fileOut = fileOut.strip()
 fileOut = fileOut.strip('"')
 
 print('Select the desired directory for the script files to be saved (WARNING: THIS WILL OVERWRITE FILES OF THE SAME NAME, SAVE TO NEW FOLDER IF YOU DONT WANT THIS TO HAPPEN): ')
 #scriptOut = input('Enter the desired directory for the script files to be saved (WARNING: THIS WILL OVERWRITE FILES OF THE SAME NAME, SAVE TO NEW FOLDER IF YOU DONT WANT THIS TO HAPPEN): ')
-scriptOut = easygui.diropenbox()
+scriptOut = easygui.diropenbox('Select the desired directory for the script files to be saved')
 scriptOut = scriptOut.strip()
 scriptOut = scriptOut.strip('"')
 

@@ -1,4 +1,9 @@
 # THERIN_Generator
+This program was written by Sabastien C. Dyer
+If you have any questions or comments please email me at sabastien.dyer@carleton.ca
+The latest version of this program and other programs I develop will be available at www.scdyer.com/software and https://github.com/sc-dyer/THERIN_Generator
+
+
 A program for generating THERIN and script files for use in THERIAK-DOMINO
 
 If you are unfamiliar with python I reccomend starting with downloading and installing pyzo(https://pyzo.org/). 
@@ -23,5 +28,4 @@ Get the file names and directories and put them in the correct format
 The sample name column should be the same as SAMPLE
 There must be no empty cells! If you have no data for a cell enter 0 in the file
 
-This program was written by Sabastien C. Dyer
-Questions? Concerns? Find my contact info at www.scdyer.com
+
