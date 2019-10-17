@@ -37,8 +37,8 @@ INIT_P = 2500#First pressure in first line
 T1 = 450 
 T2 = 650
 #Pressure range
-P1 = 3000
-P2 = 8000
+P1 = 2000
+P2 = 10000
 
 #Garnet isopleth parameters
 GT_MIN = 0 #Lowest molar proportion of a component
@@ -47,7 +47,7 @@ GT_INT = 0.02 #Interval size between each isopleth
 VOL_MIN = 0
 VOL_MAX = 0.3
 VOL_INT = 0.01
-DATABASE = "tcdb55c2.txt"
+DATABASE = "td-tcds62-COH.txt"
 
 #Column names in CSV file
 SAMPLE = "Name"
@@ -201,7 +201,9 @@ for elem in sampleCompos:
     for i in range(len(Geochem_const.GT_ENDMEM)):
         SCRIPT_Generator.isoScript(compoLine, P1, P2, T1, T2, elem.name, scriptOut, DATABASE,"GARNET", Geochem_const.GT_ENDMEM[i], GT_MIN, GT_MAX, GT_INT)
     SCRIPT_Generator.volScript(compoLine, P1, P2, T1, T2, elem.name, scriptOut, DATABASE, "GARNET", VOL_MIN, VOL_MAX, VOL_INT)
-  
+
+    
+
                 
         
 print("Done!")

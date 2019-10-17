@@ -25,6 +25,7 @@ def phaseScript(compoLine, P1, P2, T1, T2, sample, fileLoc, database):
     writeFile.write("_"+ fileName + "_pix")
     writeFile.close()
     domjob(fileName, fileLoc)
+    scriptList(fileName, fileLoc)
   
 #This method will create a script file that will calculate the phase isopleths for
 #whichever endmember entered in to the field endMem. 
@@ -48,6 +49,7 @@ def isoScript(compoLine, P1, P2, T1, T2, sample, fileLoc, database,phase, endMem
     writeFile.write("_"+ fileName + "_pix")
     writeFile.close()
     domjob(fileName, fileLoc)
+    scriptList(fileName, fileLoc)
     
 #Generate a script for volume% of a specific phase
 def volScript(compoLine, P1, P2, T1, T2, sample, fileLoc, database,phase,minVal, maxVal,interval):
@@ -69,6 +71,7 @@ def volScript(compoLine, P1, P2, T1, T2, sample, fileLoc, database,phase,minVal,
     writeFile.write("_"+ fileName + "_pix")
     writeFile.close()
     domjob(fileName, fileLoc)
+    scriptList(fileName, fileLoc)
     
     
 #Method to write to domjob file
@@ -85,3 +88,13 @@ def domjob(fileName, filepath):
     writeFile.write("explot  " + fileName + ".cln  " + fileName + ".ps\n")
     writeFile.close()
     
+def scriptList(fileName, filepath):
+#Method for writing a list of the scripts, for use with bash scripts
+    writeFile = filepath + "scriptList.txt"
+    try:
+        writeFile = open(writeFile, 'a')
+    except:
+        print('Problem creating new file')
+        exit(0)
+    writeFile.write(fileName + "\n")
+    writeFile.close()
